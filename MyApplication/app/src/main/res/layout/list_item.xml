@@ -16,7 +16,7 @@
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_margin="7dp"
-            android:src="@mipmap/blackberry_copyrighted_48"
+            android:src="@android:drawable/ic_menu_add"
             android:tint="@color/colorAccent"/>
 
         <LinearLayout
