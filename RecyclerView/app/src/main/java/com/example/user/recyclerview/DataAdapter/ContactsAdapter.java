@@ -40,10 +40,10 @@ public class ContactsAdapter extends RecyclerView.Adapter {
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
         if (viewType == editable_row) {
-            View enabledView = LayoutInflater.from(getContext()).inflate(R.layout.layout_item_list_enabled, null);
+            View enabledView = LayoutInflater.from(getContext()).inflate(R.layout.layout_item_list_enabled, parent, false);
             return new ViewHolderEnabled(enabledView);
         } else if (viewType == non_editable_row) {
-            View disabledView = LayoutInflater.from(getContext()).inflate(R.layout.layout_item_list_disabled, null);
+            View disabledView = LayoutInflater.from(getContext()).inflate(R.layout.layout_item_list_disabled, parent, false);
             return new ViewHolderDisabled(disabledView);
         }
         return null;
