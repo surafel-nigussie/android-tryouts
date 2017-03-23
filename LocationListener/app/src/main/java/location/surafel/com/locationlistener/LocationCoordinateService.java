@@ -32,6 +32,11 @@ public class LocationCoordinateService extends Service {
                 Intent intent = new Intent("LocationUpdateFilter");
                 intent.putExtra("Longitude", location.getLongitude());
                 intent.putExtra("Latitude", location.getLatitude());
+                intent.putExtra("Altitude", location.getAltitude());
+                intent.putExtra("Accuracy", location.getAccuracy());
+                intent.putExtra("Provider", location.getProvider());
+                intent.putExtra("Speed", location.getSpeed());
+                intent.putExtra("Time", location.getTime());
                 sendBroadcast(intent);
             }
 
@@ -54,7 +59,7 @@ public class LocationCoordinateService extends Service {
         };
         location_manager = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
         //noinspection MissingPermission
-        location_manager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, location_listener);
+        location_manager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 0, 0, location_listener);
     }
 
     @Override

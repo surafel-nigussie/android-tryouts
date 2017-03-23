@@ -13,7 +13,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
-    TextView tv_longitude, tv_latitude;
+    TextView tv_longitude, tv_latitude, tv_altitude, tv_accuracy, tv_provider, tv_speed, tv_time;
     BroadcastReceiver location_receiver;
 
     @Override
@@ -23,6 +23,11 @@ public class MainActivity extends AppCompatActivity {
 
         tv_longitude = (TextView) findViewById(R.id.tv_longitude);
         tv_latitude = (TextView) findViewById(R.id.tv_latitude);
+        tv_altitude = (TextView) findViewById(R.id.tv_altitude);
+        tv_accuracy = (TextView) findViewById(R.id.tv_accuracy);
+        tv_provider = (TextView) findViewById(R.id.tv_provider);
+        tv_speed = (TextView) findViewById(R.id.tv_speed);
+        tv_time = (TextView) findViewById(R.id.tv_time);
 
         if (!runtime_permissions()) {
             runtime_permissions();
@@ -50,6 +55,11 @@ public class MainActivity extends AppCompatActivity {
                 public void onReceive(Context context, Intent intent) {
                     tv_longitude.setText(intent.getExtras().get("Longitude") + "");
                     tv_latitude.setText(intent.getExtras().get("Latitude") + "");
+                    tv_altitude.setText(intent.getExtras().get("Altitude") + "");
+                    tv_accuracy.setText(intent.getExtras().get("Accuracy") + "");
+                    tv_provider.setText(intent.getExtras().get("Provider") + "");
+                    tv_speed.setText(intent.getExtras().get("Speed") + "");
+                    tv_time.setText(intent.getExtras().get("Time") + "");
                 }
             };
         }
